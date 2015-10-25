@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en" ng-app="fruitBasket">
+	<head>
+	  <meta charset="utf-8">
+	  <title>LOCAL FRUIT BASKET</title>
+	  <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
+	  <script src="/bower_components/angular/angular.js"></script>
+	  <script src="/bower_components/angular-route/angular-route.js"></script>
+	  <script src="/bower_components/angular-resource/angular-resource.js"></script>
+	  <script src="/javascripts/angularApp.js"></script>
+	  <script src="/javascripts/controllers.js"></script>
+	  <script src="/javascripts/services.js"></script>
+	</head>
+	
+	<body>
+		<div ng-view></div>
+		
+		<script type="text/ng-template" id="/candidate-list.html">
+			
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-2">
+						<button ng-click="getCandidates()">Get Candidates</button>
+					</div>
+					<div class="col-md-10">
+						<!--Body content-->
+						<ul class="list-inline">
+							<li><a href="#">Home</a></li>
+							<li><a href="#">Menu 2</a></li>
+							<li><a href="#">Menu 3</a></li>
+						</ul>
+						<ul>
+							<li ng-repeat="candidate in candidates.data" class="thumbnail">
+							<a href="#/candidates/{{candidate.id}}" class="thumb"><img ng-src="{{candidate.photo_url}}"></a>
+							<a href="#/candidates/{{candidate.id}}">{{candidate.name}}</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+	
+		</script>
+	</body>
+</html>

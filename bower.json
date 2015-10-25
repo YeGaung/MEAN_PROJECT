@@ -1,0 +1,21 @@
+{
+  "name": "LocalFruitBasket",
+  "description": "MEAN Project",
+  "main": "",
+  "license": "MIT",
+  "moduleType": [],
+  "homepage": "",
+  "dependencies": {
+    "angular": "1.4.x",
+    "bootstrap": "~3.3.5",
+    "angular-route": "~1.4.7",
+    "angular-resource": "~1.4.7"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
