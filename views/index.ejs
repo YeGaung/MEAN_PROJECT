@@ -15,20 +15,20 @@
 	<body>
 		<div ng-view></div>
 		
-		<script type="text/ng-template" id="/candidate-list.html">
+		<script type="text/ng-template" id="/candidate-list.ejs">
 			
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-md-2">
-						<button ng-click="getCandidates()">Get Candidates</button>
+						<a href="#/candidates">Candidates</a>
+						</br>
+						<a href="#/partyList">Parties</a>
+						</br>
+						<a href="#/faq">FAQ</a>
+						</br>
 					</div>
 					<div class="col-md-10">
-						<!--Body content-->
-						<ul class="list-inline">
-							<li><a href="#">Home</a></li>
-							<li><a href="#">Menu 2</a></li>
-							<li><a href="#">Menu 3</a></li>
-						</ul>
+						<button ng-click="getCandidates()">Get Candidates</button>
 						<ul>
 							<li ng-repeat="candidate in candidates.data" class="thumbnail">
 							<a href="#/candidates/{{candidate.id}}" class="thumb"><img ng-src="{{candidate.photo_url}}"></a>
@@ -40,5 +40,115 @@
 			</div>
 	
 		</script>
+		
+		<script type="text/ng-template" id="/candidate-search.ejs">
+			
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-2">
+						
+						<a href="#/candidates">Candidates</a>
+						</br>
+						<a href="#/partyList">Parties</a>
+						</br>
+						<a href="#/faq">FAQ</a>
+						</br>
+					</div>
+					<div class="col-md-10">
+						<!--Body content-->
+						State Selection : 
+						<select>
+							<option value="volvo">Yangon</option>
+							<option value="saab">Mandalay</option>
+							<option value="mercedes">Pagoo</option>
+							<option value="audi">Sakine</option>
+						</select>
+						Township Selection : 
+						<select>
+							<option value="volvo">La Tha</option>
+							<option value="saab">Dagon</option>
+							<option value="mercedes">North Oakala</option>
+							<option value="audi">Hlaing Tha Ya</option>
+							<option value="audi">Thu Wa Na</option>
+						</select>
+						Area Selection : 
+						<select>
+							<option value="volvo">Area One</option>
+							<option value="saab">Area Two</option>
+							<option value="mercedes">Area Three</option>
+							<option value="audi">Area Four/option>
+							<option value="audi">Area Five</option>
+						</select>
+						<button ng-click="getCandidates()">Get Candidates</button>
+						<ul>
+							<li ng-repeat="candidate in candidates.data" class="thumbnail">
+							<a href="#/candidates/{{candidate.id}}" class="thumb"><img ng-src="{{candidate.photo_url}}"></a>
+							<a href="#/candidates/{{candidate.id}}">{{candidate.name}}</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+	
+		</script>
+		
+		<script type="text/ng-template" id="/party-list.ejs">
+			
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-2">
+						
+						<a href="#/candidates">Candidates</a>
+						</br>
+						<a href="#/partyList">Parties</a>
+						</br>
+						<a href="#/faq">FAQ</a>
+						</br>
+					</div>
+					<div class="col-md-10">
+						<!--Body content-->
+						<ul>
+							<button ng-click="getPartyList()">Get Party List</button>
+							<li ng-repeat="party in partyList.data" class="thumbnail">
+							<img ng-src="{{party.party_flag}}">
+							{{party.party_name}}
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+	
+		</script>
+		
+		
+		<script type="text/ng-template" id="/FAQ.ejs">
+			
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-2">
+						
+						<a href="#/candidates">Candidates</a>
+						</br>
+						<a href="#/partyList">Parties</a>
+						</br>
+						<a href="#/faq">FAQ</a>
+						</br>
+					</div>
+					<div class="col-md-10">
+						<!--Body content-->
+						<ul>
+							<button ng-click="getFaqList()">Get FAQ</button>
+							<li ng-repeat="faq in faqList.data" class="thumbnail">
+							{{faq.question}}
+							</br>
+							{{faq.answer}}
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+	
+		</script>
+		
 	</body>
 </html>

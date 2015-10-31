@@ -1,16 +1,28 @@
-var app = angular.module('fruitBasket', ['ngRoute', 'candidateControllers', 'candidateServices']);
+var app = angular.module('fruitBasket', 
+						['ngRoute', 
+						'candidateControllers', 
+						'candidateServices', 
+						'partyControllers', 
+						'partyServices', 
+						'faqControllers', 
+						'faqServices']
+		);
 
 app.config(['$routeProvider',
   function($routeProvider) {
 	$routeProvider.
       when('/candidates', {
-        templateUrl: '/candidate-list.html',
-        controller: 'candidateListCtr'
-      }).when('/candidates/:candidateId', {
-        templateUrl: '/candidate-details.html',
+        templateUrl: '/candidate-list.ejs',
         controller: 'candidateListCtr'
       }).
-      otherwise({
+      when('/partyList', {
+        templateUrl: '/party-list.ejs',
+        controller: 'partyListCtr'
+      }).
+      when('/faq', {
+        templateUrl: '/FAQ.ejs',
+        controller: 'faqListCtr'
+      }).otherwise({
         redirectTo: '/candidates'
       });
   }]);
